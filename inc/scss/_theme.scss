@@ -1,0 +1,122 @@
+/*! == THEME STYLES == */
+
+/*===========GLOBAL==========*/
+.primary_light{
+	background-color: $brand-primary-light;
+	color:$white;
+	h1, h2, h3, h4, h5, h6{color:$white;}
+}
+.primary_dark{
+	background-color: $brand-primary;
+	color:$white;
+	h1, h2, h3, h4, h5, h6{color:$white;}
+}
+.white{
+	background-color: $white;
+	color: $brand-primary;
+}
+.seperator{
+	margin-bottom:rem-calc(25);
+	&:after{
+		content: '';
+		display: block;
+		margin-top:rem-calc(25);
+		width: rem-calc(20);
+		height: rem-calc(2);
+		background-color: $brand-secondary;
+	}
+}
+
+/*===========HEADER==========*/
+
+/*===========BODY==========*/
+#top_heading{
+	padding: rem-calc(10);
+	#heading{
+		padding-top: rem-calc(75);
+		padding-bottom: rem-calc(75);
+	}
+	.copy{
+		padding-bottom:rem-calc(20);
+	}
+}
+.doubleButton{
+	> .button{
+		margin-right: rem-calc(20);
+	}
+}
+#featured{
+	padding-top: rem-calc(75);
+	padding-bottom: rem-calc(75);
+}
+#visual{
+	padding-top: rem-calc(75);
+	padding-bottom: rem-calc(75);
+	.content{
+		padding-bottom:rem-calc(20);
+	}
+}
+
+/*===========FOOTER==========*/
+footer{
+	.footer-contact{
+		.phone{
+			padding-bottom:rem-calc(20);
+		}
+		.social{
+			padding-bottom:rem-calc(20);
+			font-size:rem-calc(10);
+			a{
+				padding-right: rem-calc(10);
+			}
+		}
+		.directions{
+			margin-top: rem-calc(25);
+			margin-bottom: rem-calc(50);
+		}
+	}
+	.colophon{
+		.divider{
+			padding: 0 rem-calc(20);
+		}
+	}
+	.silverless {
+	    margin-top: -5px;
+	 
+	    #logo {
+	        height: 30px;
+	    }
+
+	    #silverless {
+	        opacity:0.6;
+	        transition:opacity 0.5s ease-in-out;
+	    
+	        path {
+	            fill: white;
+	        }
+	    }
+
+	    #created {
+	        opacity:0;
+	        transform: translateY(50px);
+	        transition: 1s transform ease, 2s opacity ease;
+
+	        path {
+	            fill: white;
+	        }
+	    }
+
+	    &:hover {
+	        cursor:pointer;
+
+	        #silverless {
+	            opacity:0.8;
+	        }
+
+	        #created {
+	              opacity:0.8;
+	              transform: translateY(0);
+	        }
+	    }
+	}
+}
