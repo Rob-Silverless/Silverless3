@@ -260,4 +260,9 @@ jQuery(document).ready(function($) {
       $('header').addClass('open');
     }
   })*/
+
+  var navHeight = $("header").height();
+  $("main").css({
+    "padding-top": navHeight + "px"
+  });
 }); //Don't remove ---- end of jQuery wrapper

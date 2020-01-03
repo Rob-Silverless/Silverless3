@@ -31,6 +31,25 @@
 	<div id="page" class="site-wrapper">
 
         <header>
+			<div class="container cols-7-15">
+        		<div class="col" id="logo">
+            		<a href="<?php echo get_home_url(); ?>">
+                       <?php 
+                            $logo = get_field("logo", "options");?>
+                            <img src="<?php echo $logo["url"];?>"/>
+                    </a>
+            	</div>
+            	<div class="col">
+            		<nav id="nav">
+            			<?php
+                            wp_nav_menu(array(
+                            'theme_location'  => 'main-menu',
+                            'container_class' => 'mainMenu',
+                            ));
+                        ?>
+            		</nav>
+            	</div>
+        	</div>
         </header>
 
 		<main><!--closes in footer.php-->

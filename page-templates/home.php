@@ -40,7 +40,7 @@ get_header();?>
 
 <?php if( have_rows('featured') ):
 	while( have_rows('featured') ): the_row();?>
-	<div id="featured" class="primary_light">
+	<div id="featured" class="primary_light section">
 		<div class="container">
 			<div class="col">
 				<span class="h6"><?php the_sub_field('title');?></span>
@@ -51,7 +51,7 @@ get_header();?>
 
 <?php if( have_rows('visual') ):
 	while( have_rows('visual') ): the_row();?>
-	<div id="visual" class="white">
+	<div id="visual" class="white section">
 		<div class="container cols-8-8-8">
 			<div class="col">
 
