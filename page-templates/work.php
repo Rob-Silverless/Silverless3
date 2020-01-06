@@ -69,13 +69,19 @@ get_header();?>
 				<?php
 				    $args = array(
 				      'post_type' => 'work',
-				      /*'tax_query' => array(
+				      'tax_query' => array(
+				      	'relation' => 'OR',
 				        array(
-				          'taxonomy' => 'product_category',
+				          'taxonomy' => 'sector',
 				          'field' => 'slug',
-				          'terms' => 'boardgames'
+				          'terms' => 'travel'
+				        ),
+				        array(
+				          'taxonomy' => 'type',
+				          'field' => 'slug',
+				          'terms' => 'app'
 				        )
-				      )*/
+				      )
 				    );
 				    $works = new WP_Query( $args );
 				    if( $works->have_posts() ) {
