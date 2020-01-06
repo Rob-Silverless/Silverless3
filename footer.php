@@ -7,34 +7,39 @@
 
 </main>
 
-<footer class="footer <?php if (is_page_template('page-templates/home.php')) {?>home_footer<?php }?>">
+<footer class="footer">
 
 	<div class="pre-socket"></div><!--pre-socket-->
 
 	<div class="socket">
+		<?php if (!is_page_template('page-templates/home.php')) {?>
+			<div class="container cols-offset-8-16">
+				<div class="col work-together">
+					<h2>Let's Work Together</h2>
+				</div>
+			</div>
+		<?php }?>
 
 		<div class="container cols-8-16">
 
 			<div class="col silverless">
-				<?php get_template_part('inc/img/silverless', 'logo');?>
+				<?php if (!is_page_template('page-templates/careers.php')) {?>
+					<?php get_template_part('inc/img/silverless', 'logo');?>
+				<?php }?>
 			</div>
 
 			<div class="col footer-contact">
-				<div class="phone">
-					<a href="tel:<?php the_field('phone', 'option'); ?>"><?php the_field('phone', 'option'); ?></a>
-				</div>
-				<div class="email seperator">
-					<a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a>
-				</div>
-				<div class="social">
-					<?php if( have_rows('social_links', 'options') ):
-            			while( have_rows('social_links', 'options') ): the_row(); ?>
-							<a href="<?php the_sub_field('link'); ?>" title="<?php the_sub_field('social_network'); ?>"><i class="fab fa-<?php the_sub_field('social_network'); ?>"></i></a>
-					<?php endwhile; endif;?>
-				</div>
-				<div class="directions">
-					<a class="button btn-alt" href="<?php the_field('button_target', 'option');?>"><span><?php the_field('button_label', 'option');?></span></a>
-				</div>
+
+				<?php if (!is_page_template('page-templates/careers.php')) {?>
+
+					<?php get_template_part("template-parts/contact-details"); ?>
+
+					<div class="directions">
+						<a class="button btn-alt" href="<?php the_field('button_target', 'option');?>"><span><?php the_field('button_label', 'option');?></span></a>
+					</div>
+				<?php } else {?>
+					<div class="footer-seperator"></div>
+				<?php } ?>
 				<div class="colophon">
 					<?php the_field('footer_info', 'option');?>
 					<span class="divider">|</span>

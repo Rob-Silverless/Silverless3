@@ -265,4 +265,40 @@ jQuery(document).ready(function($) {
   $("main").css({
     "padding-top": navHeight + "px"
   });
+
+
+
+  // ========== Sticky
+ $.fn.stickyViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop() + navHeight;
+    var viewportBottom = viewportTop + $(window).height();
+    return elementTop < viewportTop && elementBottom > viewportTop;
+  };
+
+  $(window).on("resize scroll", function() {
+    $(".stickyContainer").each(function() {
+      if ($(this).stickyViewport()) {
+        $(this + ".sticky").addClass("fixedTop").css("top", navHeight);
+      } else {
+        $(this).removeClass("fixedTop");
+      }
+    });
+  });
+
+  // ============ Accordion
+  if($('.accordion-content').attr('data-hide') == 'true'){
+    $('.accordion-content').hide();
+  }
+  
+  $('.accordion-title').on('click', function(){
+    var currentAccordion = $(this).attr('data-accordion');
+      $('#' + currentAccordion).slideToggle();
+      if($(this).hasClass('open')){
+        $(this).removeClass('open');
+      } else { 
+        $(this).addClass('open');
+      }
+  });
 }); //Don't remove ---- end of jQuery wrapper

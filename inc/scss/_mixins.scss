@@ -126,3 +126,15 @@
         grid-column-end:($grid-start + $grid-end); 
     }
 }
+
+@mixin gridThreeCol($grid-one, $grid-two, $grid-three) {
+    > .col:nth-of-type(3n - 2){
+        grid-column: span $grid-one; 
+    }
+    > .col:nth-of-type(3n -1){
+        grid-column: span $grid-two; 
+    }
+    > .col:nth-of-type(3n){
+        grid-column: span $grid-three; 
+    }
+}

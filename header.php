@@ -32,7 +32,7 @@
 
         <header>
 			<div class="container cols-7-15">
-        		<div class="col" id="logo">
+        		<div class="col align-vert-c" id="logo">
             		<a href="<?php echo get_home_url(); ?>">
                        <?php 
                             $logo = get_field("logo", "options");?>

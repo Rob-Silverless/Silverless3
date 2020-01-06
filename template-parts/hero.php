@@ -9,7 +9,7 @@ endif;?>
 <section class="primary_dark">
 	<div class="container cols-offset-8-16">
 		<div class="col page-title">
-			<h1 class="seperator_reverse"><?php the_field('title');?></h1>
+			<h1 class="seperator_reverse"><?php the_field('heading');?></h1>
 		</div>
 	</div>
 </section>

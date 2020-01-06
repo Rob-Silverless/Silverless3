@@ -111,6 +111,7 @@ function silverless_manage_admin_bar(){
 /**= Add Custom Post Types and Taxonomies =**/
 
 require_once ('custom-post-types.php');
+require_once ('custom-taxonomies.php');
 
 /* ADD CUSTOM RESPONSIVE IMAGE SIZES
 ================================================== */
