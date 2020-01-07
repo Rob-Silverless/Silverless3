@@ -8,7 +8,7 @@ get_header();?>
 
 <?php get_template_part("template-parts/hero"); ?>
 
-<section class="primary_dark section">
+<section class="primary_dark section find-work">
 	<div class="container cols-8-16">
 		<div class="col work-filter stickyContainer">
 			<div class="sticky">
@@ -27,10 +27,10 @@ get_header();?>
 						    foreach ($sectors as $sector): ?>
 						    
 						    <div class="filter">
-						        <div class="checkbox">
+						        <div class="checkbox sectors">
 						        	<label>
 							        <input type="checkbox" value="<?php echo $sector->slug; ?>"/>
-									<?php echo $sector->name; ?></label>
+									<span><?php echo $sector->name; ?></span></label>
 						        </div>
 					        </div>
 					    
@@ -52,10 +52,10 @@ get_header();?>
 						    foreach ($types as $type): ?>
 						    
 						    <div class="filter">
-						        <div class="checkbox">
+						        <div class="checkbox types">
 						        	<label>
 							        <input type="checkbox" value="<?php echo $type->slug; ?>"/>
-									<?php echo $type->name; ?></label>
+									<span><?php echo $type->name; ?></span></label>
 						        </div>
 					        </div>
 					    
@@ -68,32 +68,37 @@ get_header();?>
 			<div class="container cols-12-12 grid-gap">
 				<?php
 				    $args = array(
-				      'post_type' => 'work',
-				      'tax_query' => array(
-				      	'relation' => 'OR',
-				        array(
-				          'taxonomy' => 'sector',
-				          'field' => 'slug',
-				          'terms' => 'travel'
-				        ),
-				        array(
-				          'taxonomy' => 'type',
-				          'field' => 'slug',
-				          'terms' => 'app'
-				        )
-				      )
+				      'post_type' => 'work'
 				    );
 				    $works = new WP_Query( $args );
 				    if( $works->have_posts() ) {
 				      while( $works->have_posts() ) {
 				        $works->the_post();
+				        $classes = "";
+					
+						$sectors = get_the_terms($ID, 'sector');
+						$sector_visible = "";
+						foreach($sectors as $sector)
+							if($sector->parent == 0)
+								$classes .= " " . $sector->slug;
+							else
+								$sector_visible = $sector->name;
+						
+						$types = get_the_terms($ID, 'type');
+						if (is_array($types) || is_object($types))
+						{
+							foreach($types as $type)
+								$classes .= " " . $type->slug;
+						}
 				        ?>
-				        	<div class="col">
+				        	<div class="col works-container <?php echo $classes; ?>">
 				        		<?php while( have_rows('hero') ): the_row();
 									$currentRow = get_row_index(); ?>
-									<div class="work-image" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')"></div>
-									<div class="seperator_reverse work-title"><h5><?php the_sub_field('heading'); ?></h5></div>
-									<div><?php the_sub_field('sub_heading'); ?></div>
+									<a href="<?php echo get_permalink($ID); ?>">
+										<div class="work-image" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')"></div>
+										<div class="seperator_reverse work-title"><h5><?php the_sub_field('heading'); ?></h5></div>
+										<div><?php the_sub_field('sub_heading'); ?></div>
+									</a>
 								<?php endwhile; ?>
 				          	</div>
 				        <?php

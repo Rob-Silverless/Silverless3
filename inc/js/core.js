@@ -301,4 +301,61 @@ jQuery(document).ready(function($) {
         $(this).addClass('open');
       }
   });
+
+
+
+// Works Filter
+
+  $(".find-work .work-filter .checkbox input").change(function() {
+    
+    // Destination
+    
+    var sectors = $(".filter .checkbox.sectors input:checked").map(function() {
+      return $(this).val();
+    }).toArray();
+    
+    var types = $(".filter .checkbox.types input:checked").map(function() {
+      return $(this).val();
+    }).toArray();
+    
+    
+    $(".works-container").each(function() {
+      var works     = $(this);
+      var isSector  = false;
+      var isType    = false;
+      
+      var show = false;
+      
+      // Destination
+      if(sectors.length > 0) {
+        for(var i = 0; i < sectors.length; i++)
+          if(works.hasClass(sectors[i]))
+            isSector  = true;
+      } else {
+        isSector  = true;
+      }
+      
+      // Style      
+      if(types.length > 0) {
+        for(var i = 0; i < types.length; i++)
+          if(works.hasClass(types[i]))
+            isType = true;
+      } else {
+        isType = true;
+      }
+      
+      if(isSector && isType) {
+
+        show = true;
+        
+      } else {
+        show = false;
+      }
+      
+      if(show)
+        works.fadeIn();
+      else
+        works.fadeOut();
+    });
+  });
 }); //Don't remove ---- end of jQuery wrapper
