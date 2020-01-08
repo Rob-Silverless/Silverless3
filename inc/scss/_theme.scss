@@ -306,7 +306,7 @@ header{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    &:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n){
+    &:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1){
       grid-column: span 12;
     }
     &:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 3){
@@ -314,9 +314,6 @@ header{
     }
     &:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 5), &:nth-of-type(#{$galleryCalc}n - 2){
       grid-column: span 8;
-    }
-    &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1){
-      grid-column: span 12;
     }
     a{
       background-color:black;
@@ -328,6 +325,41 @@ header{
       };
     }
   }
+}
+
+.projects{
+	grid-gap: 1.5em;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(7, 1fr);
+	display: grid;
+	width: 100%;
+	.project-container{
+	    grid-column: span 12;
+		&:nth-of-type(8n - 7), &:nth-of-type(8n - 2){
+	      grid-column: span 12;
+	      grid-row: span 2;
+	    }
+	    &:nth-of-type(8n - 6), &:nth-of-type(8n - 3), &:nth-of-type(8n - 1), &:nth-of-type(8n){
+	      grid-column: span 6;
+	      grid-row: span 1;
+	    }
+	    &:nth-of-type(8n - 5), &:nth-of-type(8n - 4){
+	      grid-column: span 6;
+	      grid-row: span 2;
+	    }
+	    min-height: rem-calc(300);
+		.project-image{
+			width:100%;
+			height:100%;
+			background-color:$brand-light-grey;
+			background-size:cover;
+			background-position:center;
+			background-repeat:no-repeat;
+			padding:rem-calc(10) rem-calc(100);
+	    	display:flex;
+	    	flex-direction:column;
+		}
+	}
 }
 
 .footer-contact{

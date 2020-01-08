@@ -58,7 +58,7 @@
 			<?php
 			    $args = array(
 			      'post_type' => 'work',
-				  'posts_per_page' => 12,
+				  'posts_per_page' => 6,
 				  'post__not_in' => array(get_the_ID())
 			    );
 			    $works = new WP_Query( $args );

@@ -23,7 +23,7 @@ function sector_cpt_taxonomy() {
 		'menu_name' 		=> __( 'Sector'         )
 	); 	
 	
-	register_taxonomy( 'sector', array( 'work' ), array(
+	register_taxonomy( 'sector', array( 'work', 'project' ), array(
 		'hierarchical' 		=> true,
 		'labels' 			=> $labels,
 		'show_ui' 			=> true,

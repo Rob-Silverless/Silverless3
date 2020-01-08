@@ -320,7 +320,7 @@ jQuery(document).ready(function($) {
     }).toArray();
     
     
-    $(".works-container").each(function() {
+    $(".works-container, .projects-container").each(function() {
       var works     = $(this);
       var isSector  = false;
       var isType    = false;
