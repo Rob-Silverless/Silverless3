@@ -64,6 +64,7 @@ jQuery(document).ready(function($) {
       gallery: {
         enabled: true,
         navigateByImgClick: true,
+        arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"><i class="fas fa-chevron-circle-right"></i></button>',
       },
     });
   });

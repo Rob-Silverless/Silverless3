@@ -23,14 +23,14 @@
 		<div class="container cols-8-16">
 
 			<div class="col silverless">
-				<?php if (!is_page_template('page-templates/careers.php')) {?>
+				<?php if (!is_page_template(array('page-templates/careers.php', 'page-templates/contact.php'))) {?>
 					<?php get_template_part('inc/img/silverless', 'logo');?>
 				<?php }?>
 			</div>
 
 			<div class="col footer-contact">
 
-				<?php if (!is_page_template('page-templates/careers.php')) {?>
+				<?php if (!is_page_template(array('page-templates/careers.php', 'page-templates/contact.php'))) {?>
 
 					<?php get_template_part("template-parts/contact-details"); ?>
 

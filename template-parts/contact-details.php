@@ -4,6 +4,13 @@
 <div class="email seperator">
 	<a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a>
 </div>
+
+<?php if (is_page_template('page-templates/contact.php')) {?>
+<div class="address seperator">
+	<?php the_field('address', 'option'); ?>
+</div>
+<?php }?>
+
 <div class="social">
 	<?php if( have_rows('social_links', 'options') ):
 		while( have_rows('social_links', 'options') ): the_row(); ?>

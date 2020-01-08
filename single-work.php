@@ -58,7 +58,26 @@ endif;?>
 			</p>
 		</div>
 	</div>
+	<div class="container cols-offset-8-14">
+		<div class="col gallery">
+			<?php 
+			$images = get_sub_field('gallery');
+			if( $images ): ?>
+			        <?php foreach( $images as $image ): ?>
+			            <div class="img-wrapper slow-fade" style="background-image: url(<?php echo $image['sizes']['large']; ?>)">
+			                <a href="<?php echo esc_url($image['url']); ?>">
+			                </a>
+			                <p><?php echo esc_html($image['caption']); ?></p>
+			            </div>
+			        <?php endforeach; ?>
+			<?php endif; ?>
+		</div>
+	</div>
 </section>
 
 <?php endwhile; endif;?>
+<section class="primary_light section">
+	<?php get_template_part("template-parts/works-list"); ?>
+</section>
+
 <?php get_footer(); ?>

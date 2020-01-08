@@ -41,9 +41,53 @@ get_header();?>
 <?php if( have_rows('featured') ):
 	while( have_rows('featured') ): the_row();?>
 	<div id="featured" class="primary_light section">
-		<div class="container">
+		<div class="container cols-24">
 			<div class="col">
 				<span class="h6"><?php the_sub_field('title');?></span>
+			</div>
+		</div>
+		<div class="container cols-8-16 grid-gap featured_container">
+			<?php
+				    
+			    $works = get_posts(array(
+		        	'post_type'     => 'work',
+		        	'meta_key'		=> 'featured_work',
+		        	'meta_value'	=> true
+				));
+			        
+			    foreach($works as $work):
+			    $ID = $work->ID;
+
+			    $types = get_the_terms($ID, 'type');
+				if (is_array($types) || is_object($types))
+				{
+					foreach($types as $type)
+						$taxonomy .= "<li>" . $type->slug . "</li>";
+				}
+			    ?>
+			    <?php while( have_rows('hero', $ID) ): the_row();?>
+				    <div class="col">
+				    	<div class="feature-content">
+					    	<h4><?php the_sub_field('heading'); ?></h4>
+					    	<div class="seperator">
+					    		<?php the_sub_field('sub_heading'); ?>
+					    	</div>
+					    	<ul class="taxonomy">
+						    	<?php echo $taxonomy;?>
+						    </ul>
+						</div>
+				    	<a href="<?php the_permalink($ID); ?>" class="button"><span>Find Out More</span></a>
+				    </div>
+				    <div class="col">
+				    	<a href="<?php the_permalink($ID); ?>" class="featured-image" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')"></a>
+				    </div>
+						
+				<?php endwhile; ?>	
+			<?php endforeach; ?>
+		</div>
+		<div class="container cols-offset-8-16">
+			<div class="col">
+				<a href="<?php the_sub_field('featured_page'); ?>" class="button"><span>See more work</span></a>
 			</div>
 		</div>
 	</div>
