@@ -56,8 +56,8 @@ header{
 	#nav{
 		a{
 			display: block;
-			line-height: rem-calc(75);
 			padding:0 rem-calc(10);
+			line-height: rem-calc(75);
 		}
 	}
 }
@@ -86,14 +86,14 @@ header{
 		padding-bottom:rem-calc(50);
 	}
 	.featured-image{
+		opacity:1;
+		transition:$fastEffect;
+		width:100%;
+		padding-bottom:56.25%;
 		background-color:$brand-light-grey;
 		background-size:cover;
 		background-position:center;
 		background-repeat:no-repeat;
-		width:100%;
-		padding-bottom:56.25%;
-		opacity:1;
-		transition:$fastEffect;
 		&:hover{
 			opacity: .6;
 			transition:$fastEffect;
@@ -104,8 +104,8 @@ header{
 	}
 	.taxonomy{
 		li{
-			text-transform:uppercase;
 			line-height:2;
+			text-transform:uppercase;
 		}
 	}
 }
@@ -117,32 +117,32 @@ header{
 .studio-nav{
 	text-transform: uppercase;
 	a{
-		color: $white;
-		line-height: 150%;
-		margin-bottom:rem-calc(20);
 		position:relative;
+		margin-bottom:rem-calc(20);
 		padding-left:rem-calc(20);
+		line-height: 150%;
+		color: $white;
 		&:before{
 			content: '+';
-			color: $brand-secondary;
 			position: absolute;
 			top:50%;
-			transform: translateY(-58%);
 			left: 0;
 			opacity: 0;
+			transform: translateY(-58%);
 			transition: $fastEffect;
 			transition-delay: .3s;
+			color: $brand-secondary;
 		}
 		&:after{
-			width:0%;
+			content: '';
 			position: absolute;
 			top:50%;
 			left: rem-calc(10);
 			transform: translateY(-50%);
-			height: 1px;
-			content: '';
-			background-color:$brand-secondary;
 			transition: $fastEffect;
+			width:0%;
+			height: 1px;
+			background-color:$brand-secondary;
 		}
 		&:hover{
 			&:before{
@@ -150,9 +150,9 @@ header{
 				transition: $fastEffect;
 			}
 			&:after{
-				width:110%;
 				transition: $fastEffect;
 				transition-delay: .3s;
+				width:110%;
 			}
 		};
 	}
@@ -168,17 +168,17 @@ header{
 			margin-bottom:rem-calc(75);
 		}
 		.accordion-title{
-			color: $brand-secondary;
-			text-transform:uppercase;
-			cursor:pointer;
-			font-size:105%;
 			position:relative;
+			cursor:pointer;
 			transition:$fastEffect;
+			font-size:105%;
+			text-transform:uppercase;
+			color: $brand-secondary;
 			&:before{
 				content: '+';
 				position:absolute;
-				left:rem-calc(-20);
 				top:0;
+				left:rem-calc(-20);
 				transition:$fastEffect;
 			}
 			&.open{
@@ -188,25 +188,25 @@ header{
 				}
 			}
 			&:hover{
-				color:$white;
 				transition:$fastEffect;
+				color:$white;
 			}
 		}
 	}
 	.profile-details{
-		max-width: rem-calc(550);
 		margin:0;
+		max-width: rem-calc(550);
 		.profile-image{
-			width:100%;
 			padding-bottom:100%;
+			width:100%;
 			background-color:$brand-light-grey;
 		}
 		.name{
 			font-size:rem-calc(16);
 		}
 		.role{
-			color: $brand-secondary;
 			font-size:rem-calc(11);
+			color: $brand-secondary;
 		}
 	}
 }
@@ -215,17 +215,17 @@ header{
 		display: none;
 	}
 	.work-title{
-		color: $brand-secondary;
+		position:relative;
+		cursor:pointer;
+		padding-bottom:rem-calc(20);
 		font-size:rem-calc(11);
 		text-transform: uppercase;
-		position:relative;
-		padding-bottom:rem-calc(20);
-		cursor:pointer;
+		color: $brand-secondary;
 		&:before{
 			content: '+';
 			position:absolute;
-			left:rem-calc(-20);
 			top:0;
+			left:rem-calc(-20);
 			transition:$fastEffect;
 		}
 		&.open{
@@ -239,10 +239,10 @@ header{
 		margin-bottom:rem-calc(50);
 	}
 	.filter{
-		text-transform:uppercase;
-		line-height:2;
-		font-size:rem-calc(12);
 		margin-bottom:rem-calc(10);
+		font-size:rem-calc(12);
+		line-height:2;
+		text-transform:uppercase;
 		.checkbox{
 			input[type=checkbox]:checked + span{
 					color: $brand-secondary;
@@ -252,24 +252,24 @@ header{
 }
 .works-container{
 	a{
+		display:block;
 		transition:$fastEffect;
 		color:$white;
-		display:block;
 		.work-image{
+			opacity:1;
+			transition:$fastEffect;
+			padding-bottom:56.25%;
+			width:100%;
 			background-color:$brand-light-grey;
 			background-size:cover;
 			background-position:center;
 			background-repeat:no-repeat;
-			width:100%;
-			padding-bottom:56.25%;
-			opacity:1;
-			transition:$fastEffect;
 		}
 		.work-title{
 			h5{
-				transition:$fastEffect;
 				margin-bottom:0;
 				padding-bottom:rem-calc(10);
+				transition:$fastEffect;
 			}
 		}
 		&:hover{
@@ -293,38 +293,38 @@ header{
 .gallery{
 	$galleryGrid: 12; 
 	$galleryCalc: $galleryGrid - 1;
-  grid-gap: 1.5em;
-  grid-template-columns: repeat($galleryGrid, 1fr);
-  display: grid;
-  width: 100%;
-  padding-top:5rem;
-  .img-wrapper {
-    @for $i from 1 to 20 {
-      &:nth-child(#{$i}) { transition-delay: $i * 0.2s; }
-    }
-    height: 20em;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    &:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1){
-      grid-column: span 12;
-    }
-    &:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 3){
-      grid-column: span 4;
-    }
-    &:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 5), &:nth-of-type(#{$galleryCalc}n - 2){
-      grid-column: span 8;
-    }
-    a{
-      background-color:black;
-      opacity: 0;
-      transition: $fastEffect;
-      &:hover{
-        opacity: 0.4;
-        transition: $fastEffect;
-      };
-    }
-  }
+	grid-gap: 1.5em;
+	grid-template-columns: repeat($galleryGrid, 1fr);
+	display: grid;
+	height: 20em;
+	width: 100%;
+	padding-top:5rem;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	.img-wrapper {
+		@for $i from 1 to 20 {
+		&:nth-child(#{$i}) { transition-delay: $i * 0.2s; }
+	}
+	&:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1){
+		grid-column: span 12;
+	}
+	&:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 3){
+		grid-column: span 4;
+	}
+	&:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 5), &:nth-of-type(#{$galleryCalc}n - 2){
+		grid-column: span 8;
+	}
+	a{
+		opacity: 0;
+		transition: $fastEffect;
+		background-color:black;
+		&:hover{
+				opacity: 0.4;
+				transition: $fastEffect;
+			};
+		}
+	}
 }
 
 .projects{
@@ -349,15 +349,39 @@ header{
 	    }
 	    min-height: rem-calc(300);
 		.project-image{
+	    	display:flex;
+	    	align-items: center;
+	    	position:relative;
 			width:100%;
 			height:100%;
+			padding:rem-calc(10) rem-calc(100);
 			background-color:$brand-light-grey;
 			background-size:cover;
 			background-position:center;
 			background-repeat:no-repeat;
-			padding:rem-calc(10) rem-calc(100);
-	    	display:flex;
-	    	flex-direction:column;
+	    	&:before{
+	    		content: '';
+	    		position: absolute;
+				z-index: 1;
+	    		top: 0;
+	    		bottom:0;
+	    		left: 0;
+	    		right: 0;
+				opacity:1;
+				transition:$fastEffect;
+	    		background: rgb(0,0,0);
+				background: linear-gradient(235deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 100%); 
+	    	}
+	    	&:hover{
+	    		&:before{
+					opacity:0.6;
+					transition:$fastEffect;
+	    		}
+	    	}
+	    	> div{
+	    		position:relative;
+	    		z-index: 2;
+	    	}
 		}
 	}
 }
@@ -401,7 +425,6 @@ footer{
 	    #silverless {
 	        opacity:0.6;
 	        transition:opacity 0.5s ease-in-out;
-	    
 	        path {
 	            fill: white;
 	        }
@@ -411,7 +434,6 @@ footer{
 	        opacity:0;
 	        transform: translateY(50px);
 	        transition: 1s transform ease, 2s opacity ease;
-
 	        path {
 	            fill: white;
 	        }

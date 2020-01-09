@@ -34,7 +34,8 @@
 			    $args = array(
 			      'post_type' => 'project',
 				  'posts_per_page' => 8,
-				  'post__not_in' => array(get_the_ID())
+				  'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+				  'post__not_in' => array(get_the_ID()),
 			    );
 			    $project = new WP_Query( $args );
 			    if( $project->have_posts() ) {
@@ -55,15 +56,17 @@
 								<div class="project-image" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')">
 									<div>
 										<h5><?php the_sub_field('heading'); ?></h5>
+										<a href="<?php echo get_permalink($ID); ?>" class="button"><span>Find Out More</span></a>
 									</div>
-									<a href="<?php echo get_permalink($ID); ?>" class="button"><span>Find Out More</span></a>
 								</div>
 							<?php endwhile; ?>
 			          	</div>
+			          	
 			        <?php
 			      }
 			    }
 			  ?>
 		</div>
+
 	</div>
 </div>
