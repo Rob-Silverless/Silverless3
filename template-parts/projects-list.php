@@ -51,7 +51,7 @@
 						else
 							$sector_visible = $sector->name;
 			        ?>
-			        	<div class="project-container <?php echo $classes; ?>">
+			        	<div class="project-container slow-fade <?php echo $classes; ?>">
 			        		<?php while( have_rows('hero') ): the_row(); ?>
 								<div class="project-image" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')">
 									<div>

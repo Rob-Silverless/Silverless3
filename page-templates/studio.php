@@ -56,7 +56,7 @@ get_header();?>
 									<?php if( have_rows('person') ): ?>
 										<?php while( have_rows('person') ): the_row(); ?>
 											<div class="col">
-												<div class="profile-image"></div>
+												<div class="profile-image slow-fade" style="background-image:url('<?php echo the_sub_field('image'); ?>')"></div>
 												<div class="name"><?php the_sub_field('name'); ?></div>
 												<div class="role"><?php the_sub_field('post_title'); ?></div>
 											</div>

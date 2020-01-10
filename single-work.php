@@ -29,7 +29,7 @@ endif;?>
 	</div>
 </section>
 <?php if( get_sub_field('background_image')): ?>
-<div class="hero h75" style="background-image: url(<?php echo get_sub_field('background_image'); ?>); background-color: <?php echo $heroColor; ?>;">
+<div class="hero h75 slow-fade" style="background-image: url(<?php echo get_sub_field('background_image'); ?>); background-color: <?php echo $heroColor; ?>;">
 
     <div class="container">
 		<div class="col">
@@ -67,7 +67,6 @@ endif;?>
 			            <div class="img-wrapper slow-fade" style="background-image: url(<?php echo $image['sizes']['large']; ?>)">
 			                <a href="<?php echo esc_url($image['url']); ?>">
 			                </a>
-			                <p><?php echo esc_html($image['caption']); ?></p>
 			            </div>
 			        <?php endforeach; ?>
 			<?php endif; ?>

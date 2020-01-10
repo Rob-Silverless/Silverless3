@@ -51,13 +51,42 @@
 header{
 	background-color:$brand-primary;
 	#logo{
-		
+		path {
+            fill: white;
+	            transition: $fastEffect;
+        }
 	}
 	#nav{
 		a{
 			display: block;
 			padding:0 rem-calc(10);
 			line-height: rem-calc(75);
+			&:before{
+				content: '';
+				position:absolute;
+				top: 0;
+				left: 50%;
+				bottom:0;
+				right: 50%;
+				border-bottom:rem-calc(3) solid $white;
+				transition: $fastEffect;
+			}
+			&:hover{
+				color: $white;
+				&:before{
+					left: 0;
+					right: 0;
+					transition: $fastEffect;
+				}
+			}
+		}
+		ul{
+			display: block;
+			text-align: left;
+			li{
+				padding-left:rem-calc(20);
+				padding-right:rem-calc(20);
+			}
 		}
 	}
 }
@@ -200,6 +229,9 @@ header{
 			padding-bottom:100%;
 			width:100%;
 			background-color:$brand-light-grey;
+			background-size:cover;
+			background-position:center;
+			background-repeat: no-repeat;
 		}
 		.name{
 			font-size:rem-calc(16);
@@ -251,12 +283,19 @@ header{
 	}
 }
 .works-container{
+	@for $i from 1 to 20 {
+		&:nth-child(#{$i}) { 
+			a{
+				.work-image{
+					transition-delay: $i * 0.2s; }
+				}
+			}
+	}
 	a{
 		display:block;
 		transition:$fastEffect;
 		color:$white;
 		.work-image{
-			opacity:1;
 			transition:$fastEffect;
 			padding-bottom:56.25%;
 			width:100%;
@@ -264,6 +303,7 @@ header{
 			background-size:cover;
 			background-position:center;
 			background-repeat:no-repeat;
+			
 		}
 		.work-title{
 			h5{
@@ -275,10 +315,6 @@ header{
 		&:hover{
 			transition:$fastEffect;
 			color:$brand-secondary;
-			.work-image{
-				opacity:.6;
-				transition:$fastEffect;
-			}
 			.work-title{
 				h5{
 					transition:$fastEffect;
@@ -296,15 +332,14 @@ header{
 	grid-gap: 1.5em;
 	grid-template-columns: repeat($galleryGrid, 1fr);
 	display: grid;
-	height: 20em;
 	width: 100%;
 	padding-top:5rem;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
 	.img-wrapper {
 		@for $i from 1 to 20 {
 		&:nth-child(#{$i}) { transition-delay: $i * 0.2s; }
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 	&:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1){
 		grid-column: span 12;
@@ -319,6 +354,8 @@ header{
 		opacity: 0;
 		transition: $fastEffect;
 		background-color:black;
+		height: rem-calc(350);
+		display: block;
 		&:hover{
 				opacity: 0.4;
 				transition: $fastEffect;
@@ -348,6 +385,10 @@ header{
 	      grid-row: span 2;
 	    }
 	    min-height: rem-calc(300);
+	    @for $i from 1 to 20 {
+			&:nth-child(#{$i}) {
+			transition-delay: $i * 0.2s; }
+		}
 		.project-image{
 	    	display:flex;
 	    	align-items: center;
@@ -370,7 +411,7 @@ header{
 				opacity:1;
 				transition:$fastEffect;
 	    		background: rgb(0,0,0);
-				background: linear-gradient(235deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 100%); 
+				background: linear-gradient(235deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%); 
 	    	}
 	    	&:hover{
 	    		&:before{

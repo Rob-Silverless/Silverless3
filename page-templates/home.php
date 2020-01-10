@@ -79,7 +79,7 @@ get_header();?>
 				    	<a href="<?php the_permalink($ID); ?>" class="button"><span>Find Out More</span></a>
 				    </div>
 				    <div class="col">
-				    	<a href="<?php the_permalink($ID); ?>" class="featured-image" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')"></a>
+				    	<a href="<?php the_permalink($ID); ?>" class="featured-image slide-up" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')"></a>
 				    </div>
 						
 				<?php endwhile; ?>	

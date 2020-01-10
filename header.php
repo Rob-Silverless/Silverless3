@@ -34,9 +34,7 @@
 			<div class="container cols-7-15">
         		<div class="col align-vert-c" id="logo">
             		<a href="<?php echo get_home_url(); ?>">
-                       <?php 
-                            $logo = get_field("logo", "options");?>
-                            <img src="<?php echo $logo["url"];?>"/>
+                       <?php get_template_part('inc/img/silverless');?>
                     </a>
             	</div>
             	<div class="col">

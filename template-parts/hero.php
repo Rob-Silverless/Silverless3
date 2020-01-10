@@ -15,7 +15,7 @@ endif;?>
 </section>
 <?php }?>
 
-<div class="hero <?php the_field('height');?>" style="background-image: url(<?php echo $heroImage; ?>); background-color: <?php echo $heroColor; ?>;">
+<div class="hero <?php the_field('height');?> slow-fade" style="background-image: url(<?php echo $heroImage; ?>); background-color: <?php echo $heroColor; ?>;">
 
     <div class="container">
 		<div class="col">

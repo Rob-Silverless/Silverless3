@@ -307,7 +307,7 @@ jQuery(document).ready(function($) {
 
 // Works Filter
 
-  $(".find-work .work-filter .checkbox input").change(function() {
+  $(".work-filter .checkbox input").change(function() {
     
     // Destination
     
@@ -320,14 +320,17 @@ jQuery(document).ready(function($) {
     }).toArray();
     
     
-    $(".works-container, .projects-container").each(function() {
+    $(".works-container, .project-container").each(function() {
       var works     = $(this);
       var isSector  = false;
       var isType    = false;
       
       var show = false;
+
+
+      console.log(sectors, types)
       
-      // Destination
+      // Sectors
       if(sectors.length > 0) {
         for(var i = 0; i < sectors.length; i++)
           if(works.hasClass(sectors[i]))
@@ -336,7 +339,7 @@ jQuery(document).ready(function($) {
         isSector  = true;
       }
       
-      // Style      
+      // Types      
       if(types.length > 0) {
         for(var i = 0; i < types.length; i++)
           if(works.hasClass(types[i]))
@@ -352,43 +355,11 @@ jQuery(document).ready(function($) {
       } else {
         show = false;
       }
-      
+
       if(show)
         works.fadeIn();
       else
         works.fadeOut();
-    });
-  });
-  $('.silverless_loadmore').click(function(){
- 
-    var button = $(this),
-        data = {
-      'action': 'loadmore',
-      'query': silverless_loadmore_params.posts, // that's how we get params from wp_localize_script() function
-      'page' : silverless_loadmore_params.current_page
-    };
- 
-    $.ajax({ // you can also use $.post here
-      url : silverless_loadmore_params.ajaxurl, // AJAX handler
-      data : data,
-      type : 'POST',
-      beforeSend : function ( xhr ) {
-        button.text('Loading...'); // change the button text, you can also add a preloader image
-      },
-      success : function( data ){
-        if( data ) { 
-          button.text( 'Load More' ).prev().before(data); // insert new posts
-          silverless_loadmore_params.current_page++;
- 
-          if ( silverless_loadmore_params.current_page == silverless_loadmore_params.max_page ) 
-            button.remove(); // if last page, remove the button
- 
-          // you can also fire the "post-load" event here if you use a plugin that requires it
-          // $( document.body ).trigger( 'post-load' );
-        } else {
-          button.remove(); // if no data, remove the button as well
-        }
-      }
     });
   });
 }); //Don't remove ---- end of jQuery wrapper

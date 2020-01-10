@@ -86,7 +86,7 @@
 			        		<?php while( have_rows('hero') ): the_row();
 								$currentRow = get_row_index(); ?>
 								<a href="<?php echo get_permalink($ID); ?>">
-									<div class="work-image" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')"></div>
+									<div class="work-image slow-fade" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')"></div>
 									<div class="seperator_reverse work-title"><h5><?php the_sub_field('heading'); ?></h5></div>
 									<div><?php the_sub_field('sub_heading'); ?></div>
 								</a>

@@ -426,11 +426,22 @@ nav {
 .scrolled header {
     background:white;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-    a{
-        color: $brand-dark-grey
+    #nav{
+        a{
+            color: $brand-primary;
+            &:before{
+                border-bottom:rem-calc(3) solid $brand-primary;
+            };
+            &:hover{
+                color: $brand-primary;
+            }
+        }
     }
-    nav{
-        border-right: 1px solid $brand-dark-grey
+    #logo{
+        path {
+            fill: $brand-primary;
+            transition: $fastEffect;
+        }
     }
 }
 
@@ -443,7 +454,7 @@ nav {
 .scrolled header #logo-bottom {
     max-height: 0;
     opacity:0;
-                transition: opacity 0.5s ease, max-height 0.5s ease;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
 }
 
 .scrolled header #logo-top {
