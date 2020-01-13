@@ -7,7 +7,7 @@ endif;?>
 
 <?php if (!is_page_template('page-templates/home.php')){?>
 <section class="primary_dark">
-	<div class="container cols-offset-8-16">
+	<div class="container cols-offset-8-16 cols-sm-24">
 		<div class="col page-title">
 			<h1 class="seperator_reverse"><?php the_field('heading');?></h1>
 		</div>

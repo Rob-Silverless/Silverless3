@@ -13,14 +13,14 @@
 
 	<div class="socket">
 		<?php if (!is_page_template('page-templates/home.php')) {?>
-			<div class="container cols-offset-8-16">
+			<div class="container cols-offset-8-16 cols-sm-24 sm-text-center">
 				<div class="col work-together">
 					<h2>Let's Work Together</h2>
 				</div>
 			</div>
 		<?php }?>
 
-		<div class="container cols-8-16">
+		<div class="container cols-8-16 cols-sm-24-24 sm-text-center">
 
 			<div class="col silverless">
 				<?php if (!is_page_template(array('page-templates/careers.php', 'page-templates/contact.php'))) {?>
@@ -41,7 +41,7 @@
 					<div class="footer-seperator"></div>
 				<?php } ?>
 				<div class="colophon">
-					<?php the_field('footer_info', 'option');?>
+					<div><?php the_field('footer_info', 'option');?></div>
 					<span class="divider">|</span>
 
 					<a href="<?php echo home_url() . '/privacy-policy'; ?>">Privacy</a>

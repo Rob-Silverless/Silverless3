@@ -1,4 +1,4 @@
-                                <svg version="1.0" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                <svg version="1.0" id="slogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                    viewBox="0 0 568.5 122.6" enable-background="new 0 0 568.5 122.6" xml:space="preserve" title="Created by silverless">
                                     <g id="silverless_logo">
                                       <path fill="#372C3B" d="M19.9,89.7c-5.2-1.8-10.2-4.4-10.2-11.2c0-4.9,3.1-7.7,7.3-7.7c3.4,0,6.3,1.2,8.4,3.7

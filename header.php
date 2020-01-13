@@ -28,10 +28,16 @@
 
 <body <?php body_class(); ?>>
 
-	<div id="page" class="site-wrapper">
 
+	<div id="page" class="site-wrapper">
+        <?php get_template_part("template-parts/off-canvas"); ?>
         <header>
-			<div class="container cols-7-15">
+            <div id="off-canvas-open">
+                <a href="#">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+			<div class="container cols-7-15 cols-xl-24-24">
         		<div class="col align-vert-c" id="logo">
             		<a href="<?php echo get_home_url(); ?>">
                        <?php get_template_part('inc/img/silverless');?>

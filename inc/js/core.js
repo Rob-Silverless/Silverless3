@@ -134,7 +134,7 @@ jQuery(document).ready(function($) {
     );
   };
 
-  $(".slide-up, .slide-down, .slide-right, .slow-fade").each(function() {
+  $(".slide-up, .slide-down, .slide-right, .slow-fade, .slide-left").each(function() {
     if ($(this).isOnScreen()) {
       $(this).addClass("active");
     }
@@ -151,7 +151,7 @@ jQuery(document).ready(function($) {
   };
 
   $(window).on("resize scroll", function() {
-    $(".slide-up, .slide-down, .slide-right, .slow-fade").each(function() {
+    $(".slide-up, .slide-down, .slide-right, .slow-fade, .slide-left").each(function() {
       if ($(this).isInViewport()) {
         $(this).addClass("active");
       }
@@ -361,5 +361,36 @@ jQuery(document).ready(function($) {
       else
         works.fadeOut();
     });
+  });
+
+
+
+
+  //Off-Canvas Menu
+
+  $('#off-canvas-open a').on('click', function(e){
+    e.preventDefault();
+    var offCanvas = $('#off-canvas');
+    var backDrop = $('#off-canvas-backdrop');
+    var logoEffect = $('header #logo');
+    $(offCanvas).addClass('open');
+    $(backDrop).addClass('open');
+    $(logoEffect).addClass('open');
+  });
+  $('#off-canvas-close').on('click', function(e){
+    e.preventDefault();
+    var offCanvas = $('#off-canvas')
+    var backDrop = $('#off-canvas-backdrop');
+    var logoEffect = $('header #logo');
+    $(offCanvas).removeClass('open');
+    $(backDrop).removeClass('open');
+    $(logoEffect).removeClass('open');
+  });
+  $('#off-canvas-backdrop').on('click', function(){
+    var offCanvas = $('#off-canvas')
+    var logoEffect = $('header #logo');
+    $(offCanvas).removeClass('open');
+    $(logoEffect).removeClass('open');
+    $(this).removeClass('open');
   });
 }); //Don't remove ---- end of jQuery wrapper

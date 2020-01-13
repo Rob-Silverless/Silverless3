@@ -8,8 +8,8 @@ get_header();?>
 
 <?php get_template_part("template-parts/hero"); ?>
 
-<section class="primary_dark section">
-    <div class="container cols-offset-8-8">
+<section class="primary_dark section section-override">
+    <div class="container cols-offset-8-8 cols-sm-24">
     	<div class="col footer-contact">
 	    	<?php get_template_part("template-parts/contact-details"); ?>
 	    </div>

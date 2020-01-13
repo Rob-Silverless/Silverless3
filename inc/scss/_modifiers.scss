@@ -100,6 +100,17 @@ $weight: (100, 200, 300, 400, 500, 600, 700, 800, 900); // Amount string.
     }
 }
 
+.slide-left {
+    transform: translateX(100px);
+    opacity: 0;
+    transition: all 2s ease;
+    
+    &.active {
+        transform:translate(0, 0);
+        opacity: 1;
+    }
+}
+
 .slow-fade {
     opacity:0;
     transition:opacity 3s ease;

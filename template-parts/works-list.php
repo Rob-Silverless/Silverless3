@@ -1,5 +1,5 @@
-<div class="container cols-8-16">
-	<div class="col work-filter stickyContainer">
+<div class="container cols-8-16 cols-sm-24-24">
+	<div class="col work-filter stickyContainer hide-sm">
 		<div class="sticky">
 			<div class="filter-container accordion-container">
 				<div class="work-title accordion-title" data-accordion="accordion-sector">Filter By Sector</div>
@@ -54,7 +54,7 @@
 		</div>
 	</div>
 	<div class="col works">
-		<div class="container cols-12-12 grid-gap">
+		<div class="container cols-12-12 cols-md-24-24 grid-gap">
 			<?php
 			    $args = array(
 			      'post_type' => 'work',

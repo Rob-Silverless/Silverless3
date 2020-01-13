@@ -8,7 +8,7 @@ get_header();?>
 
 <?php get_template_part("template-parts/hero"); ?>
 
-<section class="primary_dark section find-work">
+<section class="primary_dark section find-work section-override">
 	<?php get_template_part("template-parts/works-list"); ?>
 </section>
 

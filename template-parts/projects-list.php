@@ -1,5 +1,5 @@
-<div class="container cols-8-16">
-	<div class="col work-filter stickyContainer">
+<div class="container cols-8-16 cols-sm-24-24">
+	<div class="col work-filter stickyContainer hide-sm">
 		<div class="sticky">
 			<div class="filter-container accordion-container">
 				<div class="work-title accordion-title" data-accordion="accordion-sector">Filter By Sector</div>

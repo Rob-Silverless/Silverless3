@@ -22,7 +22,7 @@ elseif ( get_field('type') == 'color' ):
 endif;?>
 
 <section class="primary_dark">
-	<div class="container cols-offset-8-16">
+	<div class="container cols-offset-8-16 cols-sm-24">
 		<div class="col page-title">
 			<h1 class="seperator_reverse"><?php the_sub_field('heading');?></h1>
 		</div>
@@ -47,8 +47,8 @@ endif;?>
 
 <?php if( have_rows('info') ):
 	while( have_rows('info') ): the_row();?>
-<section class="primary_dark section">
-	<div class="container cols-offset-8-8">
+<section class="primary_dark section section-override">
+	<div class="container cols-offset-8-8 cols-lg-offset-4-16 cols-sm-24">
 		<div class="col">
 			<p>
 				<strong><?php the_sub_field('copy_heading');?></strong>
@@ -58,7 +58,7 @@ endif;?>
 			</p>
 		</div>
 	</div>
-	<div class="container cols-offset-8-14">
+	<div class="container cols-offset-8-14 cols-lg-offset-1-22 cols-sm-24">
 		<div class="col gallery">
 			<?php 
 			$images = get_sub_field('gallery');

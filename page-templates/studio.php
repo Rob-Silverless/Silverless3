@@ -10,8 +10,8 @@ get_header();?>
 
 <?php if( have_rows('content') ): ?>
     	<section class="primary_dark section">
-        	<div class="container cols-8-16">
-        		<div class="col studio-nav stickyContainer">
+        	<div class="container cols-8-16 cols-sm-24-24">
+        		<div class="col studio-nav stickyContainer hide-sm">
         			<ul class="sticky">
     				<?php while( have_rows('content') ): the_row(); ?>
 		        		<?php if( get_row_layout() == 'section' ): ?>
@@ -52,7 +52,7 @@ get_header();?>
 							<?php if( get_sub_field('section_title')): ?>
 								<div class="studio-content" id="studio-<?php echo get_row_index(); ?>">
 									<h3><?php the_sub_field('section_title'); ?></h3>
-									<div class="container cols-8-8-8 grid-gap profile-details">
+									<div class="container cols-8-8-8 cols-sm-12-12 grid-gap profile-details">
 									<?php if( have_rows('person') ): ?>
 										<?php while( have_rows('person') ): the_row(); ?>
 											<div class="col">
@@ -75,14 +75,16 @@ get_header();?>
 <?php if( have_rows('visual') ):
 	while( have_rows('visual') ): the_row();?>
 <section class="white section" id="visual">
-	<div class="container cols-8-8-8">
+	<div class="container cols-8-8-8 cols-xl-8-12 cols-sm-24-24">
 		<div class="col">
 
 		</div>
 		<div class="col">
 			<h2 class="seperator"><?php the_sub_field('title');?></h2>
 			<div class="content"><?php the_sub_field('content');?></div>
-			<a class="button btn-alt" href="<?php the_sub_field('button_url');?>"><span><?php the_sub_field('button_title');?></span></a>
+			<div class="sm-text-center">
+				<a class="button btn-alt" href="<?php the_sub_field('button_url');?>"><span><?php the_sub_field('button_title');?></span></a>
+			</div>
 		</div>
 	</div>
 </section>

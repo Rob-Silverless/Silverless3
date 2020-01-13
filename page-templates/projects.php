@@ -9,7 +9,7 @@ get_header();?>
 <?php get_template_part("template-parts/hero"); ?>
 
 <section class="primary_dark">
-	<div class="container cols-offset-8-8">
+	<div class="container cols-offset-8-8 cols-lg-offset-8-12 cols-sm-24">
 		<div class="col">
 			<?php the_field('content');?>
 		</div>

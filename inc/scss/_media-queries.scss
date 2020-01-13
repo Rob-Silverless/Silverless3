@@ -1,16 +1,106 @@
 /*! == MEDIA QUERIES == */
 
+/*===========MEDIA QUERIES==========*/
+
+@each $name, $size in $breakpoints {
+	
+	@media (max-width: #{$size}) {
+        .container{
+            max-width: #{$size};
+        }
+		@for $i from 1 through $col-count {
+			.container.cols-#{$name}-#{$i} > .col {
+				grid-column: span $i;
+			}
+		}
+        @for $gridOffset from 1 to $col-count {
+            @for $grid from 1 to $col-count {
+                .container.cols-#{$name}-offset-#{$gridOffset}-#{$grid} > .col{
+                    grid-column-start:($gridOffset + 1);
+                    grid-column-end:(($gridOffset + 1) + $grid);
+                }
+            }
+        }
+        .container.cols-#{$name}-24-24{
+	        @include gridTwoCol(24, 0);
+	    }
+        .container.cols-#{$name}-24-24{
+	        display:block;
+	    }
+	    .container.cols-#{$name}-12-12{
+	        @include gridTwoCol(12, 12);
+	    }
+	    .container.cols-#{$name}-8-12{
+	        @include gridTwoCol(8, 12);
+	    }
+	}
+}
+
 /*===========LARGE (1200px)==========*/
 
 @media only screen and (max-width: 1200px) {
 
 /*---GLOBALS---*/ 
+#off-canvas{
+	display:block;
+}
 
 /*---HEADER---*/ 
+#nav{
+	display:none;
+}
+#logo{
+	padding:rem-calc(20);
+	text-align:center;
+	transform: translateX(0);
+	opacity: 1;
+	transition:$fastEffect;
+	svg{
+		margin: 0 auto;
+	}
+	&.open{
+		transform: translateX(20px);
+		opacity: 0;
+		transition:$fastEffect;
+	}
+}
+header{
+	#off-canvas-open{
+		display:block;
+	}
+}
 
 /*---CONTENT---*/
+.projects{
+	.project-container{
+	    min-height: rem-calc(150);
+	    @for $i from 1 to 20 {
+			&:nth-child(#{$i}) {
+			transition-delay: $i * 0.1s; }
+		}
+		.project-image{
+			padding:rem-calc(10) rem-calc(50);
+		}
+	}
+}
+
 
 /*---FOOTER---*/
+footer{
+	.socket{
+		 .colophon{
+		 	display:block;
+		 	.divider{
+		 		&:first-of-type{
+		 			display:none;
+		 		}
+		 	}
+		 	div{
+		 		padding-bottom:rem-calc(10);
+		 	}
+	 	}
+	}
+}
 
 }/*---end large mq---*/
 
@@ -24,7 +114,14 @@
 /*---HEADER---*/
 
 /*---CONTENT---*/
-
+.works-container{
+	padding-bottom:rem-calc(50);
+}
+.projects{
+	.project-container{
+	    min-height: rem-calc(100);
+	}
+}
 /*---FOOTER---*/
 
 }/*---end medium mq---*/
@@ -50,12 +147,86 @@
 @media only screen and (max-width: 576px) {
   
 /*---GLOBALS---*/
+.container{
+	.grid-gap{
+		grid-gap: rem-calc(10);
+	}
+}
 
+h1{font-size: rem-calc(36)}
+h2{font-size: rem-calc(32)}
+h3{font-size: rem-calc(26)}
+h4{font-size: rem-calc(22)}
+h5{font-size: rem-calc(16)}
+h6{font-size: rem-calc(16)}
+.sm-text-center{
+	text-align: center;
+	.seperator{
+		&:after{
+			left:50%;
+			position:relative;
+			transform:translateX(-50%);
+		}
+	}
+}
+.button{
+	padding:rem-calc(10) rem-calc(20);
+}
+.hide-sm{
+	display:none;
+}
+.show-sm{
+	display:block;
+}
+.h75{
+	min-height:25vh;
+}
+.section-override{
+	padding-top:rem-calc(20);
+}
 /*---HEADER---*/
 
 /*---CONTENT---*/
-
+.feature-content{
+	.taxonomy{
+		display:none;
+	}
+}
+.studio-content{
+	.container{
+		padding-left:0;
+		padding-right:0;
+	}
+}
+.works{
+	.container{
+		padding-left:0;
+		padding-right:0;
+	}
+}
+.projects{
+	.project-container{
+		&:nth-of-type(8n - 7), &:nth-of-type(8n - 2), &:nth-of-type(8n - 6), &:nth-of-type(8n - 3), &:nth-of-type(8n - 1), &:nth-of-type(8n), &:nth-of-type(8n - 5), &:nth-of-type(8n - 4){
+	      grid-column: span 12;
+	      grid-row: span 1;
+	    }
+	}
+}
+.gallery{
+	$galleryGrid: 12; 
+	$galleryCalc: $galleryGrid - 1;
+	.img-wrapper{
+		&:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1), &:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 3),&:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 5), &:nth-of-type(#{$galleryCalc}n - 2){
+			grid-column: span 12;
+		}
+	}
+}
 /*---FOOTER---*/
+.footer-contact{
+	.social{
+		font-size:rem-calc(22);
+	}
+}
 
 }/*---end extra small mq---*/
 
