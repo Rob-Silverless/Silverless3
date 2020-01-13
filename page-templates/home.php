@@ -14,8 +14,8 @@ get_header();?>
 	while( have_rows('section_link') ): the_row();?>
 	<div id="top_heading" class="primary_dark">
 		<div class="container cols-offset-8-8 cols-xl-offset-8-12 cols-sm-24">
-			<div class="col slide-left delay sm-text-center">
-				<?php the_sub_field('top_heading');?> <a href=""><?php the_sub_field('target_label');?></a>
+			<div class="col slide-left delay sm-text-center font300">
+				<?php the_sub_field('top_heading');?> <a href="" class="font600"><?php the_sub_field('target_label');?></a>
 			</div>
 		</div>
 		<div class="container cols-offset-8-8 cols-xl-offset-8-12 cols-sm-24" id="heading">

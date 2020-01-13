@@ -564,6 +564,82 @@ header{
 	}
 }
 
+.visual_section{
+	padding-left:rem-calc(25);
+	padding-right:rem-calc(25);
+	.hero{	
+		margin-top:rem-calc(25);
+	}
+}
+.visual_hero{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	h1{
+		color:$white;
+		font-size:rem-calc(36);
+	}
+}
+.visual_gallery{
+	$galleryGrid: 12; 
+	$galleryCalc: $galleryGrid - 1;
+	grid-gap: rem-calc(25);
+	grid-template-columns: repeat($galleryGrid, 1fr);
+	display: grid;
+	width: 100%;
+	padding-top: rem-calc(25);
+	padding-bottom: rem-calc(50);
+	.img-wrapper {
+		@for $i from 1 to 20 {
+		&:nth-child(#{$i}) { transition-delay: $i * 0.2s; }
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	&:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 3){
+		grid-column: span 3;
+	}
+	&:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 4){
+		grid-column: span 9;
+	}
+	&:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1), &:nth-of-type(#{$galleryCalc}n){
+		grid-column: span 4;
+	}
+	&:nth-of-type(#{$galleryCalc}n - 5){
+		grid-column: span 12;
+	}
+	a{
+		opacity: 0;
+		transition: $fastEffect;
+		background-color:black;
+		height: rem-calc(350);
+		display: block;
+		&:hover{
+				opacity: 0.4;
+				transition: $fastEffect;
+			};
+		}
+	}
+}
+#design{
+	svg{
+		max-width:rem-calc(175);
+		margin-left:rem-calc(5);
+		transform:translateY(20px);
+		opacity:0;
+		transition:$slowEffect;
+	}
+	h2{
+		margin-top:rem-calc(-20);
+	}
+	&:hover{
+		svg{
+			transform:translateY(0);
+			opacity:1;
+			transition:$slowEffect;
+		}
+	}
+}
 .footer-contact{
 	a{
 		color: $white;
