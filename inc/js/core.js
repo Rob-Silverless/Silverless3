@@ -267,7 +267,14 @@ jQuery(document).ready(function($) {
     "padding-top": navHeight + "px"
   });
 
-
+  $('.visual_dropdown').on('click', function(e){
+    e.preventDefault();
+    if($('.visual_menu').hasClass('open')){
+      $('.visual_menu').removeClass('open');
+    } else {
+      $('.visual_menu').addClass('open');
+    }
+  });
 
   // ========== Sticky
  $.fn.stickyViewport = function() {
@@ -320,7 +327,7 @@ jQuery(document).ready(function($) {
     }).toArray();
     
     
-    $(".works-container, .project-container").each(function() {
+    $(".works-container, .project-container, .img-wrapper").each(function() {
       var works     = $(this);
       var isSector  = false;
       var isType    = false;

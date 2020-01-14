@@ -27,16 +27,35 @@ endif;?>
 
 <section class="visual_section">
 	<div class="visual_gallery">
-		<?php 
-		$images = get_field('gallery');
-		if( $images ): ?>
-		        <?php foreach( $images as $image ): ?>
-		            <div class="img-wrapper slow-fade" style="background-image: url(<?php echo $image['sizes']['large']; ?>)">
+		<?php
+			    $args = array(
+			      'post_type' => 'visual',
+				  'posts_per_page' => 10,
+				  'post__not_in' => array(get_the_ID())
+			    );
+			    $works = new WP_Query( $args );
+			    if( $works->have_posts() ) {
+			      while( $works->have_posts() ) {
+			        $works->the_post();
+			        $classes = "";
+
+					$visuals = get_the_terms($ID, 'visual');
+					if (is_array($visuals) || is_object($visuals))
+					{
+						foreach($visuals as $visual)
+							$classes .= " " . $visual->slug;
+					}
+					$image = get_field('image');
+			        ?>
+			        <div class="img-wrapper slow-fade <?php echo $classes; ?>" style="background-image: url(<?php echo esc_url($image['url']); ?>)">
 		                <a href="<?php echo esc_url($image['url']); ?>">
 		                </a>
 		            </div>
-		        <?php endforeach; ?>
-		<?php endif; ?>
+
+			        <?php
+			      }
+			    }
+			  ?>
 	</div>
 </section>
 

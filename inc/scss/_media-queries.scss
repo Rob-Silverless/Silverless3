@@ -83,6 +83,21 @@ header{
 		}
 	}
 }
+.visual_gallery{
+	$galleryGrid: 12; 
+	$galleryCalc: $galleryGrid - 1;
+	.img-wrapper {
+		&:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 4){
+		grid-column: span 8;
+		}
+		&:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1), &:nth-of-type(#{$galleryCalc}n){
+			grid-column: span 4;
+		}
+		&:nth-of-type(#{$galleryCalc}n - 5){
+			grid-column: span 12;
+		}
+	}
+}
 
 
 /*---FOOTER---*/
@@ -217,6 +232,25 @@ h6{font-size: rem-calc(16)}
 	$galleryCalc: $galleryGrid - 1;
 	.img-wrapper{
 		&:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1), &:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 3),&:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 5), &:nth-of-type(#{$galleryCalc}n - 2){
+			grid-column: span 12;
+		}
+	}
+}
+.visual_section{
+	.h75{
+		min-height: 50vh;
+		text-align: center;
+		h1{
+			font-size:rem-calc(32);
+		}
+	}
+}
+
+.visual_gallery{
+	$galleryGrid: 12; 
+	$galleryCalc: $galleryGrid - 1;
+	.img-wrapper {
+		&:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1), &:nth-of-type(#{$galleryCalc}n), &:nth-of-type(#{$galleryCalc}n - 5){
 			grid-column: span 12;
 		}
 	}

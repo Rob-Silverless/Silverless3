@@ -5,6 +5,7 @@
 
 add_action( 'init', 'custom_post_type_work', 0 );
 add_action( 'init', 'custom_post_type_project', 0 );
+add_action( 'init', 'custom_post_type_visual', 0 );
 
 // ====== Works
 function custom_post_type_work() {
@@ -90,4 +91,47 @@ function custom_post_type_project() {
     );
     
     register_post_type( 'project', $args );
+}
+
+// ====== Visual
+function custom_post_type_visual() {
+
+    $labels = array(
+        'name'                => _x( 'Visual Photos', 'Post Type General Name',  'silverless' ),
+        'singular_name'       => _x( 'visual',  'Post Type Singular Name', 'silverless' ),
+        'menu_name'           => __( 'Visual Photos',         'silverless' ),
+        'parent_item_colon'   => __( 'Parent Visual',  'silverless' ),
+        'all_items'           => __( 'All Visuals',   'silverless' ),
+        'view_item'           => __( 'View Visual',    'silverless' ),
+        'add_new_item'        => __( 'Add New Visual', 'silverless' ),
+        'add_new'             => __( 'Add Visual',     'silverless' ),
+        'edit_item'           => __( 'Edit Visual',    'silverless' ),
+        'update_item'         => __( 'Update Visual',  'silverless' ),
+        'search_items'        => __( 'Search Visual',  'silverless' ),
+        'not_found'           => __( 'Not Found',          'silverless' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'silverless' )
+    );
+    
+    $args = array(
+        'label'               => __( 'project', 'silverless' ),
+        'description'         => __( 'project', 'silverless' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'taxonomies', 'page-attributes' ),
+        'taxonomies'          => array( 'visual' ),
+        'menu_icon'           => 'dashicons-images-alt2',
+        'hierarchical'        => false,
+        'menu_position'       => 3,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page'
+    );
+    
+    register_post_type( 'visual', $args );
 }

@@ -32,7 +32,7 @@
 	<div id="page" class="site-wrapper">
         <?php get_template_part("template-parts/off-canvas"); ?>
         <header>
-            <?php if (!is_page_template('page-templates/visual.php')){?>
+            <?php if (!is_page( array( 'about-us-visual', 'contact-us-visual', 'silverless-visual' ) ) ){?>
             <div id="off-canvas-open">
                 <a href="#">
                     <i class="fas fa-bars"></i>
@@ -56,8 +56,53 @@
             	</div>
         	</div>
             <?php } else {?>
+                <div id="visual_nav" class="container fullwidth cols-3-18-3">
+                    <div class="col">
+                        <a href="#" class="visual_dropdown">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                    </div>
+                    <div class="visual_logo col">
+                        <?php get_template_part('inc/img/silverless');?>
+                    </div>
+                    <div class="col visual_button">
+                        <a href="#" class="button btn-alt"><span>Contact Us</span></a>
+                    </div>
+                    <div class="visual_menu work-filter">
+                        <div class="filter-container accordion-container">
+                            <div class="work-title accordion-title" data-accordion="accordion-sector">Filter Images</div>
+                            <div class="accordion-content" id="accordion-sector" data-hide="false">
+                                <?php
+                                                        
+                                    $visuals = get_terms(array(
+                                        "taxonomy"   => "visual",
+                                        "hide_empty" => false,
+                                        "parent"     => 0,
+                                        "orderby"    => "name"
+                                    ));
+                                    
+                                    foreach ($visuals as $visual): ?>
+                                    
+                                    <div class="filter">
+                                        <div class="checkbox sectors">
+                                            <label>
+                                            <input type="checkbox" value="<?php echo $visual->slug; ?>"/>
+                                            <span><?php echo $visual->name; ?></span></label>
+                                        </div>
+                                    </div>
+                                
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
 
-
+                        <?php
+                            wp_nav_menu(array(
+                            'theme_location'  => 'secondary-menu',
+                            'container_class' => 'visualMenu',
+                            ));
+                        ?>
+                    </div>
+                </div>
             <?php }?>
         </header>
 

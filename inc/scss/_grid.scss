@@ -91,6 +91,9 @@
     &.cols-8-8-8{
         @include gridThreeCol(8, 8, 8);
     }
+    &.cols-3-18-3{
+        @include gridThreeCol(3, 18, 3);
+    }
 }
 .container {
 

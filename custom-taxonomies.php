@@ -5,6 +5,7 @@
 
 add_action( 'init', 'sector_cpt_taxonomy', 0 );
 add_action( 'init', 'type_cpt_taxonomy', 0 );
+add_action( 'init', 'visual_cpt_taxonomy', 0 );
 
 // ====== Sector
 function sector_cpt_taxonomy() {
@@ -57,5 +58,34 @@ function type_cpt_taxonomy() {
 		'show_admin_column' => true,
 		'query_var' 		=> true,
 		'rewrite' 			=> array( 'slug' => 'type', 'hierarchical' => true )
+	));
+}
+
+
+
+// ====== Image Filter
+function visual_cpt_taxonomy() {
+ 
+	$labels = array(
+		'name' 				=> _x( 'Image Types', 'taxonomy general name' ),
+		'singular_name' 	=> _x( 'Image Type', 'taxonomy singular name' ),
+		'search_items' 		=> __( 'Search Image Type'   ),
+		'all_items'			=> __( 'All Image Types'     ),
+		'parent_item' 		=> __( 'Parent Image Type'   ),
+		'parent_item_colon' => __( 'Parent Image Type:'  ),
+		'edit_item' 		=> __( 'Edit Image Type'     ), 
+		'update_item' 		=> __( 'Update Image Type'   ),
+		'add_new_item' 		=> __( 'Add New Image Type'  ),
+		'new_item_name' 	=> __( 'New Image Type Name' ),
+		'menu_name' 		=> __( 'Image Type'         )
+	); 	
+	
+	register_taxonomy( 'visual', array( 'visual' ), array(
+		'hierarchical' 		=> true,
+		'labels' 			=> $labels,
+		'show_ui' 			=> true,
+		'show_admin_column' => true,
+		'query_var' 		=> true,
+		'rewrite' 			=> array( 'slug' => 'visual', 'hierarchical' => true )
 	));
 }
