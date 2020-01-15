@@ -56,17 +56,19 @@
             	</div>
         	</div>
             <?php } else {?>
-                <div id="visual_nav" class="container fullwidth cols-3-18-3">
+                <div id="visual_nav" class="container fullwidth cols-4-16-4">
                     <div class="col">
                         <a href="#" class="visual_dropdown">
-                            <i class="fas fa-bars"></i>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </a>
                     </div>
                     <div class="visual_logo col">
-                        <?php get_template_part('inc/img/silverless');?>
+                        <a href="<?php the_field('visual_home_page', 'option');?>"><?php get_template_part('inc/img/silverless');?></a>
                     </div>
                     <div class="col visual_button">
-                        <a href="#" class="button btn-alt"><span>Contact Us</span></a>
+                        <a href="<?php the_field('visual_contact_page', 'option');?>" class="button btn-alt hide-sm"><span>Contact Us</span></a>
                     </div>
                     <div class="visual_menu work-filter">
                         <div class="filter-container accordion-container">
@@ -101,6 +103,15 @@
                             'container_class' => 'visualMenu',
                             ));
                         ?>
+
+                        <div class="social seperator_reverse">
+                            <div>
+                                <?php if( have_rows('social_links', 'options') ):
+                                    while( have_rows('social_links', 'options') ): the_row(); ?>
+                                        <a href="<?php the_sub_field('link'); ?>" title="<?php the_sub_field('social_network'); ?>"><i class="fab fa-<?php the_sub_field('social_network'); ?>"></i></a>
+                                <?php endwhile; endif;?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             <?php }?>

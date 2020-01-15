@@ -398,29 +398,6 @@ nav {
 	transition: all 0.5s ease;
 }
 
-.pagination {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-
-	.page-numbers {
-		color: white;
-		font-size: 1.2em;
-		background: $brand-tertiary;
-		width: 1.5em;
-		height: 1.5em;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 100%;
-		margin-left: 0.2em;
-		
-		&.current {
-			background: $brand-mid-grey;
-		}
-	}
-}
-
 .scrolled header {
     background:white;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);

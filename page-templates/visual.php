@@ -28,10 +28,12 @@ endif;?>
 <section class="visual_section">
 	<div class="visual_gallery">
 		<?php
+				$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 			    $args = array(
 			      'post_type' => 'visual',
 				  'posts_per_page' => 10,
-				  'post__not_in' => array(get_the_ID())
+				  'post__not_in' => array(get_the_ID()),
+				  'paged' => $paged,
 			    );
 			    $works = new WP_Query( $args );
 			    if( $works->have_posts() ) {
@@ -55,8 +57,26 @@ endif;?>
 			        <?php
 			      }
 			    }
+			    wp_reset_postdata();
 			  ?>
 	</div>
+
+		<div class="pagination">
+		  <?php
+				$big = 999999999;
+
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'prev_text'          => __('<span>Previous</span>'),
+					'next_text'          => __('<span>Next</span>'),
+					'current' => max( 1, get_query_var('paged') ),
+					'before_page_number' => '<span>',
+					'after_page_number'  => '</span>',
+					'total' => $works->max_num_pages
+				) );
+			?>
+		</div>
 </section>
 
 <?php if( have_rows('design') ):

@@ -252,15 +252,6 @@ jQuery(document).ready(function($) {
   $(".mobileMenu").click(function() {
     $("nav").slideToggle(300);
   });
-  /*$('').on('click', function(){
-    if($('header').hasClass('open')){
-      console.log('does not have class');
-      $('header').removeClass('open');
-    } else {
-      console.log('has class');
-      $('header').addClass('open');
-    }
-  })*/
 
   var navHeight = $("header").height();
   $("main").css({
@@ -270,30 +261,12 @@ jQuery(document).ready(function($) {
   $('.visual_dropdown').on('click', function(e){
     e.preventDefault();
     if($('.visual_menu').hasClass('open')){
-      $('.visual_menu').removeClass('open');
+      $('.visual_menu, .visual_dropdown').removeClass('open');
     } else {
-      $('.visual_menu').addClass('open');
+      $('.visual_menu, .visual_dropdown').addClass('open');
     }
   });
 
-  // ========== Sticky
- $.fn.stickyViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop() + navHeight;
-    var viewportBottom = viewportTop + $(window).height();
-    return elementTop < viewportTop && elementBottom > viewportTop;
-  };
-
-  $(window).on("resize scroll", function() {
-    $(".stickyContainer").each(function() {
-      if ($(this).stickyViewport()) {
-        $(this + ".sticky").addClass("fixedTop").css("top", navHeight);
-      } else {
-        $(this).removeClass("fixedTop");
-      }
-    });
-  });
 
   // ============ Accordion
   if($('.accordion-content').attr('data-hide') == 'true'){
@@ -333,9 +306,6 @@ jQuery(document).ready(function($) {
       var isType    = false;
       
       var show = false;
-
-
-      console.log(sectors, types)
       
       // Sectors
       if(sectors.length > 0) {

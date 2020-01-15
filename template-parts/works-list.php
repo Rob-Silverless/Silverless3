@@ -56,9 +56,11 @@
 	<div class="col works">
 		<div class="container cols-12-12 cols-md-24-24 grid-gap">
 			<?php
+				$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 			    $args = array(
 			      'post_type' => 'work',
-				  'posts_per_page' => 6,
+				  'posts_per_page' => 4,
+				  'paged' => $paged,
 				  'post__not_in' => array(get_the_ID())
 			    );
 			    $works = new WP_Query( $args );
@@ -96,6 +98,22 @@
 			      }
 			    }
 			  ?>
+		</div>
+		<div class="pagination">
+		  <?php
+				$big = 999999999;
+
+				echo paginate_links( array(
+					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+					'format' => '?paged=%#%',
+					'prev_text'          => __('<span>Previous</span>'),
+					'next_text'          => __('<span>Next</span>'),
+					'current' => max( 1, get_query_var('paged') ),
+					'before_page_number' => '<span>',
+					'after_page_number'  => '</span>',
+					'total' => $works->max_num_pages
+				) );
+			?>
 		</div>
 	</div>
 </div>
