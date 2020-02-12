@@ -59,18 +59,34 @@ endif;?>
 		</div>
 	</div>
 	<div class="container cols-offset-8-14 cols-lg-offset-1-22 cols-sm-24">
-		<div class="col gallery">
-			<?php 
-			$images = get_sub_field('gallery');
-			if( $images ): ?>
-			        <?php foreach( $images as $image ): ?>
-			            <div class="img-wrapper slow-fade" style="background-image: url(<?php echo $image['sizes']['large']; ?>)">
-			                <a href="<?php echo esc_url($image['url']); ?>">
-			                </a>
-			            </div>
-			        <?php endforeach; ?>
-			<?php endif; ?>
+
+		<?php if( have_rows('gallery') ):?>
+			<div class="col gallery">
+		<?php while( have_rows('gallery') ): the_row();?>
+		
+			<?php if( get_row_layout() == 'full_width' ):
+            	$image = get_sub_field('image');?>
+				<div class="img-wrapper slow-fade fullwidth" style="background-image: url('<?php echo $image['url']?>)">
+	                <a href="<?php echo $image['url']?>">
+	                </a>
+	            </div>
+            <?php elseif( get_row_layout() == '5050' ): 
+	            $image = get_sub_field('image');?>
+		        <div class="img-wrapper slow-fade __5050" style="background-image: url('<?php echo $image['url']?>)">
+	                <a href="<?php echo $image['url']?>">
+	                </a>
+	            </div>
+	        <?php elseif( get_row_layout() == 'triumvirate' ): 
+	            $image = get_sub_field('image');?>
+		        <div class="img-wrapper slow-fade triumvirate" style="background-image: url('<?php echo $image['url']?>)">
+	                <a href="<?php echo $image['url']?>">
+	                </a>
+	            </div>
+            <?php endif; ?>
+		
+		<?php endwhile;?>
 		</div>
+		<?php endif;?>
 	</div>
 </section>
 

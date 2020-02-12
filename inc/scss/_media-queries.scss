@@ -228,11 +228,14 @@ h6{font-size: rem-calc(16)}
 	}
 }
 .gallery{
-	$galleryGrid: 12; 
-	$galleryCalc: $galleryGrid - 1;
 	.img-wrapper{
-		&:nth-of-type(#{$galleryCalc}n - 10), &:nth-of-type(#{$galleryCalc}n - 7), &:nth-of-type(#{$galleryCalc}n - 4), &:nth-of-type(#{$galleryCalc}n), &:nth-of-type(#{$galleryCalc}n - 3), &:nth-of-type(#{$galleryCalc}n - 2), &:nth-of-type(#{$galleryCalc}n - 1), &:nth-of-type(#{$galleryCalc}n - 9), &:nth-of-type(#{$galleryCalc}n - 6), &:nth-of-type(#{$galleryCalc}n - 3),&:nth-of-type(#{$galleryCalc}n - 8), &:nth-of-type(#{$galleryCalc}n - 5), &:nth-of-type(#{$galleryCalc}n - 2){
+		&.fullwidth, &.__5050{
 			grid-column: span 12;
+		}
+		&.triumvirate{
+			&:nth-of-type(3n-3), &:nth-of-type(3n-2), &:nth-of-type(3n-1){
+				grid-column: span 12;
+			}
 		}
 	}
 }
