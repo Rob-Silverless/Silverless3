@@ -674,7 +674,8 @@ header{
 		opacity: 0;
 		transition: $fastEffect;
 		background-color:black;
-		height: rem-calc(350);
+		min-height: rem-calc(350);
+		height: 100%;
 		display: block;
 		&:hover{
 				opacity: 0.4;
