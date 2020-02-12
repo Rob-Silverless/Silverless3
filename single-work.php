@@ -71,15 +71,30 @@ endif;?>
 	                </a>
 	            </div>
             <?php elseif( get_row_layout() == '5050' ): 
-	            $image = get_sub_field('image');?>
+	            $image = get_sub_field('image');
+	            $image_second = get_sub_field('image_second');?>
 		        <div class="img-wrapper slow-fade __5050" style="background-image: url('<?php echo $image['url']?>)">
 	                <a href="<?php echo $image['url']?>">
 	                </a>
 	            </div>
+	            <div class="img-wrapper slow-fade __5050" style="background-image: url('<?php echo $image_second['url']?>)">
+	                <a href="<?php echo $image_second['url']?>">
+	                </a>
+	            </div>
 	        <?php elseif( get_row_layout() == 'triumvirate' ): 
-	            $image = get_sub_field('image');?>
+	            $image = get_sub_field('image');
+	            $image_large = get_sub_field('image_large');
+	            $image_third = get_sub_field('image_third');?>
 		        <div class="img-wrapper slow-fade triumvirate" style="background-image: url('<?php echo $image['url']?>)">
 	                <a href="<?php echo $image['url']?>">
+	                </a>
+	            </div>
+	            <div class="img-wrapper slow-fade triumvirate" style="background-image: url('<?php echo $image_large['url']?>)">
+	                <a href="<?php echo $image_large['url']?>">
+	                </a>
+	            </div>
+	            <div class="img-wrapper slow-fade triumvirate" style="background-image: url('<?php echo $image_third['url']?>)">
+	                <a href="<?php echo $image_third['url']?>">
 	                </a>
 	            </div>
             <?php endif; ?>
